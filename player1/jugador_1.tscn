@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cblsx5hlm4hru"]
+
+[ext_resource type="Script" uid="uid://h1suiqamokb5" path="res://player1/jugador_1.gd" id="1_0ar0e"]
+[ext_resource type="Texture2D" uid="uid://2l1he1kdq1t4" path="res://assets/paddle-blue.png" id="1_waxj1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ar0e"]
+radius = 12.0
+height = 104.0
+
+[node name="jugador1" type="CharacterBody2D" unique_id=1203056375]
+position = Vector2(100, 360)
+script = ExtResource("1_0ar0e")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=948300181]
+rotation = 1.5707964
+texture = ExtResource("1_waxj1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1006895475]
+shape = SubResource("CapsuleShape2D_0ar0e")
