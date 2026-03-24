@@ -4,11 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://2l1he1kdq1t4" path="res://assets/paddle-blue.png" id="1_waxj1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ar0e"]
-radius = 12.0
-height = 104.0
+height = 100.0
 
 [node name="jugador1" type="CharacterBody2D" unique_id=1203056375]
-position = Vector2(100, 360)
+position = Vector2(180, 360)
 script = ExtResource("1_0ar0e")
 metadata/_edit_group_ = true
 

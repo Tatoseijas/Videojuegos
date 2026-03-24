@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://7ye76rdywcwj"]
+
+[ext_resource type="PackedScene" uid="uid://cblsx5hlm4hru" path="res://player1/jugador_1.tscn" id="1_ib083"]
+[ext_resource type="Script" uid="uid://osrpxrywym57" path="res://pingipong.gd" id="1_m3ogi"]
+[ext_resource type="PackedScene" uid="uid://bu7smf2h4m2ii" path="res://pelota/pelota.tscn" id="2_eq18r"]
+[ext_resource type="PackedScene" uid="uid://bmjrfsagh1fot" path="res://computadora/computadora.tscn" id="3_uxi37"]
+[ext_resource type="Texture2D" uid="uid://buk0gh0mgbnym" path="res://assets/wall-horizontal.png" id="4_eq18r"]
+[ext_resource type="Texture2D" uid="uid://cf3r6huu18m51" path="res://assets/wall-vertical.png" id="6_6rb4l"]
+[ext_resource type="FontFile" uid="uid://bgfcuo05ltw3d" path="res://assets/alarm clock.ttf" id="7_6rb4l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uxi37"]
+size = Vector2(1281, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ov6vv"]
+size = Vector2(20, 619)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ov6vv"]
+font = ExtResource("7_6rb4l")
+font_size = 64
+
+[node name="pingipong" type="Node2D" unique_id=139017795]
+script = ExtResource("1_m3ogi")
+
+[node name="jugador1" parent="." unique_id=1203056375 instance=ExtResource("1_ib083")]
+
+[node name="pelota" parent="." unique_id=1848426391 instance=ExtResource("2_eq18r")]
+
+[node name="computadora" parent="." unique_id=2147064790 instance=ExtResource("3_uxi37")]
+
+[node name="techo" type="StaticBody2D" parent="." unique_id=187637498]
+position = Vector2(0, 40)
+
+[node name="Sprite2D" type="Sprite2D" parent="techo" unique_id=1577696954]
+position = Vector2(640, 0)
+scale = Vector2(1.0774411, 1)
+texture = ExtResource("4_eq18r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="techo" unique_id=2113856594]
+position = Vector2(640, 0)
+shape = SubResource("RectangleShape2D_uxi37")
+
+[node name="piso" type="StaticBody2D" parent="." unique_id=1042744585]
+position = Vector2(0, 680)
+
+[node name="Sprite2D" type="Sprite2D" parent="piso" unique_id=471911067]
+position = Vector2(640, 0)
+scale = Vector2(1.0774411, 1)
+texture = ExtResource("4_eq18r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="piso" unique_id=125851016]
+position = Vector2(639.5, 0)
+shape = SubResource("RectangleShape2D_uxi37")
+
+[node name="gol" type="Area2D" parent="." unique_id=1824669731]
+
+[node name="Sprite2D" type="Sprite2D" parent="gol" unique_id=1255369892]
+position = Vector2(10, 360.5)
+scale = Vector2(1, 0.982595)
+texture = ExtResource("6_6rb4l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gol" unique_id=1500442149]
+position = Vector2(10, 359.5)
+shape = SubResource("RectangleShape2D_ov6vv")
+
+[node name="gol2" type="Area2D" parent="." unique_id=145216942]
+position = Vector2(972, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="gol2" unique_id=541404236]
+position = Vector2(297, 360.5)
+scale = Vector2(1, 0.982595)
+texture = ExtResource("6_6rb4l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gol2" unique_id=1510048113]
+position = Vector2(297, 359.5)
+shape = SubResource("RectangleShape2D_ov6vv")
+
+[node name="marcadorjugador" type="Label" parent="." unique_id=564116524]
+offset_left = 535.0
+offset_top = 107.0
+offset_right = 573.0
+offset_bottom = 175.0
+text = "0"
+label_settings = SubResource("LabelSettings_ov6vv")
+
+[node name="marcadorcomputadora" type="Label" parent="." unique_id=1046881299]
+offset_left = 696.0
+offset_top = 109.0
+offset_right = 736.0
+offset_bottom = 177.0
+text = "0"
+label_settings = SubResource("LabelSettings_ov6vv")
+
+[connection signal="body_entered" from="gol" to="." method="_on_gol_body_entered"]
+[connection signal="body_entered" from="gol2" to="." method="_on_gol_2_body_entered"]

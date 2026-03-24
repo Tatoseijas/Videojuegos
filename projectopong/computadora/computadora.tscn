@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bmjrfsagh1fot"]
+
+[ext_resource type="Script" uid="uid://dq1tqnlkyuw4n" path="res://computadora/computadora.gd" id="1_1ba1i"]
+[ext_resource type="Texture2D" uid="uid://cbujlayaunal1" path="res://assets/paddle-red.png" id="1_u1u3l"]
+[ext_resource type="Script" uid="uid://1hvusukgrrag" path="res://computadora/sprite_2d.gd" id="2_8r2fv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ar0e"]
+height = 100.0
+
+[node name="computadora" type="CharacterBody2D" unique_id=1203056375]
+position = Vector2(1180, 360)
+script = ExtResource("1_1ba1i")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=948300181]
+rotation = 1.5707964
+texture = ExtResource("1_u1u3l")
+script = ExtResource("2_8r2fv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1006895475]
+shape = SubResource("CapsuleShape2D_0ar0e")
